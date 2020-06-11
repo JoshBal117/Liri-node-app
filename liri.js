@@ -129,5 +129,23 @@ if (type === "concert-this") {
         if (error) {
             return console.log(error);
         };
-    })
+    };
+        
+    var dataArr = data.split(",");       
+    var dataAction = dataArr[0];
+    var dataTerm = dataArr[1]
+    if (dataAction === "concert-this") {
+        findConcerts(dataTerm);
+    } else if (dataAction === "spotify-this-song") {
+        findSongs(dataTerm);
+    } else if (dataAction === "movie-this") {
+        findMovies(dataTerm);
+    } else {
+        console.log("Can't understand that file");
+    }
+});
+ else {
+console.log("Please enter 'concert-this', 'spotify-this-song', 'movie-this', or 'do-what-it-says'");
 }
+
+   
