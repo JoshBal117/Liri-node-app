@@ -3,7 +3,7 @@ Liri app
 ===========================
 ABOUT
 ============================
-This application allwos a user to make a request for information about concerts, songs, movies by way of command lines, IT utilizes Bands In Town, Spotify, and OMDB API's along with a series of node modules to assis with the requests. This application was created by Joshua Balao
+This application allows a user to make a request for information about concerts, songs, movies by way of command lines, IT utilizes Bands In Town, Spotify, and OMDB API's along with a series of node modules to assis with the requests. This application was created by Joshua Balao
 Directions on how to use it ae below.
 =======================================
 
@@ -29,7 +29,7 @@ These are the commands that can be typed into the command line
     By typing this command will return production details from the requested movie, along with the plot and cast, to the console.
 
 4. do-what-it-sys
-    This REads the text in the Randome.txt file and runs the approriate function to return the information to the console. 
+    This Reads the text in the Randome.txt file and runs the approriate function to return the information to the console. 
 
 =====================================================================
 

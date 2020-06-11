@@ -14,28 +14,28 @@ var fs = require("fs")
 var spotify = new Spotify(keys.spotify)
 const dayjs = require("dayjs")
 
-function cortanaLiri () {
-    switch (type) {
-        case "concert-this":
-            concertThis() 
-            break;
+// function cortanaLiri () {
+//     switch (type) {
+//         case "concert-this":
+//             concertThis() 
+//             break;
 
-        case "spotify-this-song":
-            spottySong()
-            break;
+//         case "spotify-this-song":
+//             spottySong()
+//             break;
         
-        case "movie-this":
-            findMovie()
-            break;
+//         case "movie-this":
+//             findMovie()
+//             break;
         
-        case "Do-what-it-says":
+//         case "Do-what-it-says":
 
         
         
-        default:
-            break;
-    }
-}
+//         default:
+//             break;
+//     }
+// }
 //
 var type = process.argv[2];
 
@@ -56,16 +56,27 @@ function concertThis(search) {
         .get(queryUrl)
         .then(function(res) {
         console.log("========NEW SHOW LIST========")
-        // console.log(`Catch ${search} at: \n`);
-        // for (let i = 0; i < res.data.length; i++) {
-        //     var venue = res.data[i].venue.name;
-        //     var location = res.data[i].venue.city + ", " +res.data[i].venue.region;
-        //     var date = dayjs(res.data[i].datetime).format('{YYYY} MM-DDTHH:mm:ss SSS [Z] A');
-        //     console.log(`${venue} in ${location} on ${date}`);
-        //     }
-        //     console.log("\n--------------------------------");
+        console.log(`Catch ${search} at: \n`);
+        for (let i = 0; i < res.data.length; i++) {
+            var venue = res.data[i].venue.name;
+            var location = res.data[i].venue.city + ", " +res.data[i].venue.region;
+            var date = dayjs(res.data[i].datetime).format('{YYYY} MM-DDTHH:mm:ss SSS [Z] A');
+            console.log(`${venue} in ${location} on ${date}`);
+            }
+            console.log("\n--------------------------------");
     });
     
+}
+
+function spottySong(search) {
+    console.log("Finding your song ,,,")
+    if(!search) {
+        search = "The Sign, Ace of Base";
+    }
+
+    sprotify.search({
+
+    })
 }
 
 
