@@ -100,10 +100,8 @@ function findMovies(search) {
 
     var queryURL = "https://www.omdbapi.com/?apikey=trilogy&t=" + search;
     
-    axios({
-        method:'get',
-        url: queryURL
-    })
+    axios
+    .get(queryUrl)
     .then(function(res) {
         var title = res.data.Title;
         var year = res.data.Year;
