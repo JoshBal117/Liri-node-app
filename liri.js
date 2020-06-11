@@ -75,8 +75,8 @@ function spottySong(search) {
     }
 
     sprotify.search({
-            type: 'track'
-            query: search
+            type: 'track',
+            query: search 
     }, function(err, data) {
         if(err) {
                 return console.log('Errpr occurred: ' + err);
@@ -88,6 +88,34 @@ function spottySong(search) {
         console.log("=========NEW SONG=========\n");
         console.log(`Check out "${track}" off of the album '${album}' by '${artist}' here: ${preview}`);
         console.log("\n==========================");
+    });
+}
+
+function findMovies(search) {
+    console.log("Finding your movie...");
+
+    if (!search) {
+        search = "Mr. Nobody";
+    };
+
+    var queryURL = "https://www.omdbapi.com/?apikey=trilogy&t=" + search;
+    
+    axios({
+        method:'get',
+        url: queryURL
+    })
+    .then(function(res) {
+        var title = res.data.Title;
+        var year = res.data.Year;
+        var imdb = res.data.Ratings[0].Value;
+        var rotten = res.data.Ratings[1].Value;
+        var country = res.data.Country;
+        var language = res.data.Language;
+        var plot = res.data.Plot;
+        var actors = res.data.Actors;
+        console.log("=========NEW MOVIE=========\n");
+        console.log(`${title} (${year}): ${plot}. \nThe film was produced in ${country} and available in ${language}. Rated ${imdb} on IMDB and ${rotten} on Rotten Tomatoes. \nStarring: ${actors}. `)
+        console.log("\n===========================");
     });
 }
 
