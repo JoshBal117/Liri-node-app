@@ -75,8 +75,20 @@ function spottySong(search) {
     }
 
     sprotify.search({
-
-    })
+            type: 'track'
+            query: search
+    }, function(err, data) {
+        if(err) {
+                return console.log('Errpr occurred: ' + err);
+        }
+        var track = data.tracks.items[0].name; 
+        var artist = data.tracks.items[0].album.artists[0].name; 
+        var album = data.tracks.items[0].album.name; 
+        var preview = data.tracks.items[0].preview_url; 
+        console.log("=========NEW SONG=========\n");
+        console.log(`Check out "${track}" off of the album '${album}' by '${artist}' here: ${preview}`);
+        console.log("\n==========================");
+    });
 }
 
 
