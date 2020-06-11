@@ -14,62 +14,71 @@ var fs = require("fs")
 var spotify = new Spotify(keys.spotify)
 const dayjs = require("dayjs")
 
+function cortanaLiri () {
+    switch (type) {
+        case "concert-this":
+            concertThis() 
+            break;
+
+        case "spotify-this-song":
+            spottySong()
+            break;
+        
+        case "movie-this":
+            findMovie()
+            break;
+        
+        case "Do-what-it-says":
+
+        
+        
+        default:
+            break;
+    }
+}
 //
 var type = process.argv[2];
 
 var term = process.argv.slice(3).join(" ");
-//This is the function that will use the BandsinTown to locate the conert
-function switchCase() {
-
-    switch (type) {
-        case "concert-this":
-            bandsInTown(parameter)
-            break;
+//This is the function that will use the BandsinTown to locate the concert
     
-        case "spotify-this-song":
-            spottySong(parameter)
-            break;
-    
-        case "movie-this":
-            movieInfo(parameter)
-            break;
-    
-        case "do-what-it-says":
-            getRandom()
-            break;
-    
-        default:
-            logIt("Invalid Instruction")
-            break;
-    }
-}
-
 function concertThis(search) {
         console.log("Finding your conerts...")
-    //default AC/DC
+    //default Foo Fighters
     if (!search) {
-        search = "AC/DC";
+        search = "Foo+Fighters";
     };
 
-    var queryUrl = "https://rest.bandsintown.com/artist/" + artist.replace(" ", "+") + "/events?app_id=codingbootcamp"
+    var queryUrl = "https://rest.bandsintown.com/artist/" + search + "/events?app_id=codingbootcamp"
     console.log(queryUrl);
 
-    axios({
-        method: 'get',
-        url: queryUrl
-    })
-    .then(function bandsInTown(parameter) {
+    axios
+        .get(queryUrl)
+        .then(function(res) {
         console.log("========NEW SHOW LIST========")
-        console.log('Catch ${search} at: \n');
-        for (let i = 0; i < res.data.length; i++) {
-            var venue = res.data[i].venue.name;
-            var location = res.data[i].venue.city + ", " +res.data[i].venue.region;
-            var date = dayjs(res.data[i].datetime).format('{YYYY} MM-DDTHH:mm:ss SSS [Z] A');
-            console.log('${venue} in ${location} on ${date}');
-            }
-    })
+        // console.log(`Catch ${search} at: \n`);
+        // for (let i = 0; i < res.data.length; i++) {
+        //     var venue = res.data[i].venue.name;
+        //     var location = res.data[i].venue.city + ", " +res.data[i].venue.region;
+        //     var date = dayjs(res.data[i].datetime).format('{YYYY} MM-DDTHH:mm:ss SSS [Z] A');
+        //     console.log(`${venue} in ${location} on ${date}`);
+        //     }
+        //     console.log("\n--------------------------------");
+    });
     
 }
 
 
-//This is function for the Spotify
+if (type === "concert-this") {
+    concertThis(term);
+} else if (type === "spotify-this-song") {
+    spottySong(term)
+} else if(type === "movie-this") {
+    findMovies(term)
+} else if (type === "do-what-it-says") {
+    fs.readFile("randome.txt", "utf8", function(error, data) {
+        if (error) {
+            return console.log(error);
+        };
+    })
+}
