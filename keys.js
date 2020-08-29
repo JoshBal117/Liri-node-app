@@ -1,7 +1,6 @@
-console.log('The Keys have loaded')
-
+console.log('The Keys have loaded');
 
 exports.spotify = {
     id: process.env.SPOTIFY_ID,
     secret: process.env.SPOTIFY_SECRET
-  };
+};
