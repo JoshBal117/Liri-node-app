@@ -4,7 +4,7 @@ Liri app
 ABOUT
 ============================
 This application allows a user to make a request for information about concerts, songs, movies by way of command lines, IT utilizes Bands In Town, Spotify, and OMDB API's along with a series of node modules to assis with the requests. This application was created by Joshua Balao
-Directions on how to use it ae below.
+Directions on how to use it are below.
 =======================================
 
 GETTING STARTED
