@@ -42,3 +42,7 @@ This Project makes use of:
     NODE-SPOTIFY-API: Retrieves song information
     OMDB API - Retrieves movie information
     BANDS IN TOWN API - Retrieve show information
+
+Video Link:
+https://youtu.be/RztdNxiHJe8
+
