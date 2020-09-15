@@ -6,7 +6,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const moment = require("moment")
 
-var spotify = new Spotify(keys.spotify)
+var spotify = new Spotify(keys.spotify);
 
 
 
@@ -16,7 +16,10 @@ var spotify = new Spotify(keys.spotify)
 // let command = process.argv[2];
 // let secondCom = process.argv[3];
 
-// ********** I ADDED YOUR SWITCH INSIDE OF A FUNCTION, SO WE CAN RE USE AN RE CALL THE SWITCH WHENEVER WE WANT.
+const [,,command,...secondCom]=process.argv // Array destructuring (with spread)
+console.log("destructred" ,command, " : ", secondCom)
+
+// ********** I ADDED YOUR SWITCH INSIDE OF A FUNCTION, SO WE CAN RE USE AND RE CALL THE SWITCH WHENEVER WE WANT.
 let actionable = function (command, secondCom) {
 
     switch (command) {
