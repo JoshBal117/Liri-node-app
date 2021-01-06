@@ -4,7 +4,7 @@
   "description": "Liri app \r ===========================\r ABOUT\r ============================\r This application allows a user to make a request for information about concerts, songs, movies by way of command lines, IT utilizes Bands In Town, Spotify, and OMDB API's along with a series of node modules to assis with the requests. This application was created by Joshua Balao\r Directions on how to use it ae below.\r =======================================",
   "main": "keys.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dayjs": "^1.8.28",
     "dotenv": "^8.2.0",
     "inquirer": "^7.3.3",
