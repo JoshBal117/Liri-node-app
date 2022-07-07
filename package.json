@@ -8,7 +8,7 @@
     "dayjs": "^1.8.28",
     "dotenv": "^8.2.0",
     "inquirer": "^7.3.3",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "node-spotify-api": "^1.1.1",
     "request": "^2.88.2",
     "spotify": "^0.3.0"
